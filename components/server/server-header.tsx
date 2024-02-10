@@ -26,6 +26,14 @@ export const ServerHeader = ({
         onOpen("invite", {server});
     }
 
+    function handleEditSettings(){
+        onOpen("editServer", {server});
+    }
+
+    function handleMembers(){
+        onOpen("members", {server});
+    }
+
     return(
         <DropdownMenu>
             <DropdownMenuTrigger className="focus:outline-none" asChild >
@@ -45,7 +53,7 @@ export const ServerHeader = ({
                 }
                 {
                     isAdmin?
-                        <DropdownMenuItem className="px-3 py-2 text-sm cursor-pointer">
+                        <DropdownMenuItem className="px-3 py-2 text-sm cursor-pointer" onClick={handleEditSettings}>
                             Server Settings
                             <Settings className="h-4 w-4 ml-auto"></Settings>
                         </DropdownMenuItem>
@@ -53,7 +61,7 @@ export const ServerHeader = ({
                 }
                 {
                     isAdmin?
-                        <DropdownMenuItem className="px-3 py-2 text-sm cursor-pointer">
+                        <DropdownMenuItem className="px-3 py-2 text-sm cursor-pointer" onClick={handleMembers}>
                             Manage Members
                             <Users className="h-4 w-4 ml-auto"></Users>
                         </DropdownMenuItem>
