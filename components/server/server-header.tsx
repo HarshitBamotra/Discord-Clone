@@ -34,6 +34,10 @@ export const ServerHeader = ({
         onOpen("members", {server});
     }
 
+    function createChannel(){
+        onOpen("createChannel", {server});
+    }
+
     return(
         <DropdownMenu>
             <DropdownMenuTrigger className="focus:outline-none" asChild >
@@ -69,7 +73,7 @@ export const ServerHeader = ({
                 }
                 {
                     isModerator?
-                        <DropdownMenuItem className="px-3 py-2 text-sm cursor-pointer">
+                        <DropdownMenuItem className="px-3 py-2 text-sm cursor-pointer" onClick={createChannel}>
                             Create Channels
                             <PlusCircle className="h-4 w-4 ml-auto"></PlusCircle>
                         </DropdownMenuItem>
