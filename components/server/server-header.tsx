@@ -38,6 +38,10 @@ export const ServerHeader = ({
         onOpen("createChannel", {server});
     }
 
+    function leaveServer(){
+        onOpen("leaveServer", {server});
+    }
+
     return(
         <DropdownMenu>
             <DropdownMenuTrigger className="focus:outline-none" asChild >
@@ -94,7 +98,7 @@ export const ServerHeader = ({
                 }
                 {
                     !isAdmin?
-                        <DropdownMenuItem className="px-3 py-2 text-sm cursor-pointer">
+                        <DropdownMenuItem className="px-3 py-2 text-sm cursor-pointer" onClick={leaveServer}>
                             Leave Server
                             <LogOut className="h-4 w-4 ml-auto"></LogOut>
                         </DropdownMenuItem>
