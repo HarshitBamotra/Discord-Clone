@@ -7,6 +7,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSepara
 import { ChevronDown, LogOut, PlusCircle, Settings, Trash, UserPlus, Users } from "lucide-react";
 import { useModal } from "@/hooks/use-modal-store";
 
+
 interface ServerHeaderProps {
     server: ServerWithMembersWithProfile;
     role?: MemberRole
@@ -40,6 +41,10 @@ export const ServerHeader = ({
 
     function leaveServer(){
         onOpen("leaveServer", {server});
+    }
+
+    function deleteServer(){
+        onOpen("deleteServer", {server});
     }
 
     return(
@@ -90,7 +95,7 @@ export const ServerHeader = ({
                 }
                 {
                     isAdmin?
-                        <DropdownMenuItem className=" text-rose-500 px-3 py-2 text-sm cursor-pointer">
+                        <DropdownMenuItem className=" text-rose-500 px-3 py-2 text-sm cursor-pointer" onClick={deleteServer}>
                             Delete Server
                             <Trash className="h-4 w-4 ml-auto"></Trash>
                         </DropdownMenuItem>
