@@ -48,6 +48,7 @@ const findConversation = async (
 const createNewConversation = async (
     memberOneId: string, memberTwoId: string
 )=>{
+
     try {
         return db.conversation.create({
             data:{
@@ -67,6 +68,7 @@ const createNewConversation = async (
                 }
             }
         })
+        
     } catch (error) {
         return null
     }
